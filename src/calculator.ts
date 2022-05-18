@@ -1,4 +1,4 @@
-class Calculator {
+export class Calculator {
     value: number;
     constructor() {
         this.value = 0;
@@ -32,5 +32,3 @@ class Calculator {
         this.value = this.value / num;
     }
 }
-
-module.exports = Calculator;
