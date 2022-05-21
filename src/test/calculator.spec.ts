@@ -1,7 +1,7 @@
 import { Calculator } from "../calculator";
 
 describe("Calculator TEST", () => {
-    let cal: { value: number; set: (arg0: number) => void };
+    let cal: any;
     beforeEach(() => {
         cal = new Calculator();
     });
@@ -13,5 +13,12 @@ describe("Calculator TEST", () => {
     it("set number", () => {
         cal.set(3);
         expect(cal.value).toBe(3);
+    });
+
+    it("clear - value 0", () => {
+        cal.set(1);
+        expect(cal.value).toBe(1);
+        cal.clear();
+        expect(cal.value).toBe(0);
     });
 });
