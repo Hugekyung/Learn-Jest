@@ -21,4 +21,15 @@ describe("Calculator TEST", () => {
         cal.clear();
         expect(cal.value).toBe(0);
     });
+
+    it("add", () => {
+        cal.add(3);
+        cal.add(2);
+        expect(cal.value).toBe(5);
+    });
+
+    it("add - limit 100", () => {
+        cal.add(20);
+        expect(() => cal.add(100)).toThrow(Error);
+    });
 });
