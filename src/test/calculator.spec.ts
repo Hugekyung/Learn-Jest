@@ -32,4 +32,21 @@ describe("Calculator TEST", () => {
         cal.add(20);
         expect(() => cal.add(100)).toThrow(Error);
     });
+
+    it("subtract", () => {
+        cal.subtract(2);
+        expect(cal.value).toBe(-2);
+    });
+
+    it("multiply", () => {
+        cal.add(2);
+        cal.multiply(2);
+        expect(cal.value).toBe(4);
+    });
+
+    it("divide", () => {
+        cal.add(9);
+        cal.divide(3);
+        expect(cal.value).toBe(3);
+    });
 });
