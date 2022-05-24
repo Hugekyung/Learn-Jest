@@ -49,4 +49,10 @@ describe("Calculator TEST", () => {
         cal.divide(3);
         expect(cal.value).toBe(3);
     });
+
+    it("divide - float", () => {
+        cal.add(10);
+        cal.divide(3);
+        expect(cal.value).toBeGreaterThan(3);
+    });
 });
