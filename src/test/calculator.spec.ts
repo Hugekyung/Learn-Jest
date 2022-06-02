@@ -21,6 +21,7 @@ describe("Calculator TEST", () => {
         cal.clear();
         expect(cal.value).toBe(0);
     });
+
     describe("add", () => {
         it("add", () => {
             cal.add(3);
@@ -28,9 +29,11 @@ describe("Calculator TEST", () => {
             expect(cal.value).toBe(5);
         });
 
-        it("add - limit 100", () => {
+        it("add Error - limit 100", () => {
             cal.add(20);
-            expect(() => cal.add(100)).toThrow(Error);
+            expect(() => cal.add(100)).toThrow(
+                "Value can not be greater than 100"
+            );
         });
     });
 
