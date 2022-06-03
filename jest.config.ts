@@ -4,7 +4,7 @@ module.exports = {
     testEnvironment: "node",
     collectCoverage: false,
     coverageDirectory: "coverage",
-    clearMocks: true,
+    clearMocks: true, // * mock함수를 모든 테스트 수행 전 초기화한다
     transform: {
         "^.+\\.ts?$": "ts-jest",
     },

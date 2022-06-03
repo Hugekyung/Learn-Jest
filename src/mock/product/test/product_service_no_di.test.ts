@@ -1,5 +1,5 @@
-import { ProductService } from "../product_service_no_di.js";
-import { ProductClient } from "../product_client.js";
+import { ProductService } from "../product_service_no_di";
+import { ProductClient } from "../product_client";
 jest.mock("../product_client");
 
 describe("Test ProductService", () => {
@@ -7,10 +7,21 @@ describe("Test ProductService", () => {
         { item: "Milk", available: true },
         { item: "Banana", available: false },
     ]);
-    let productService;
+
+    // ? mockImplementation 이거 해결방법?
+    ProductClient.mockImplementation(() => {
+        return {
+            fetchItems,
+        };
+    });
+    let productService: ProductService;
     beforeEach(() => {
         productService = new ProductService();
     });
 
-    it("Test fetchAvailableItems", () => {});
+    it("should filter out only available items", async () => {
+        const items = await productService.fetchAvailableItems();
+        expect(items.length).toBe(1);
+        // expect(items).toEqual([{ item: "Milk", available: true }]);
+    });
 });

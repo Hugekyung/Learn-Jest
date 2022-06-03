@@ -1,5 +1,10 @@
 import { ProductClient } from "./product_client";
 
+interface Item {
+    item: string;
+    available: boolean;
+}
+
 export class ProductService {
     productClient: ProductClient;
     constructor() {
@@ -9,8 +14,6 @@ export class ProductService {
     fetchAvailableItems() {
         return this.productClient
             .fetchItems()
-            .then((items) =>
-                items.filter((item: string) => item === "available")
-            );
+            .then((items) => items.filter((item: Item) => item.available));
     }
 }
