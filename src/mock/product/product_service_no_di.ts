@@ -11,9 +11,9 @@ export class ProductService {
         this.productClient = new ProductClient();
     }
 
-    fetchAvailableItems() {
-        return this.productClient
-            .fetchItems()
-            .then((items) => items.filter((item: Item) => item.available));
+    async fetchAvailableItems() {
+        const items: Item[] = await this.productClient.fetchItems();
+        const result = items.filter((item: Item) => item.available);
+        return result;
     }
 }

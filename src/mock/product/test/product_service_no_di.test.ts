@@ -19,8 +19,10 @@ describe("Test ProductService", () => {
         productService = new ProductService();
     });
 
+    // ! TypeError: Cannot read properties of undefined (reading 'then')
     it("should filter out only available items", async () => {
         const items = await productService.fetchAvailableItems();
+        console.log(items);
         expect(items.length).toBe(1);
         // expect(items).toEqual([{ item: "Milk", available: true }]);
     });
