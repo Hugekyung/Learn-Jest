@@ -3,7 +3,12 @@ import { ProductClient } from "../product_client";
 jest.mock("../product_client");
 
 describe("Test ProductService", () => {
-    const fetchItems = jest.fn(async () => [
+    // const fetchItems = jest.fn(async () => [
+    //     { item: "Milk", available: true },
+    //     { item: "Banana", available: false },
+    // ]);
+
+    const fetchItems = jest.fn().mockResolvedValue([
         { item: "Milk", available: true },
         { item: "Banana", available: false },
     ]);
@@ -24,6 +29,7 @@ describe("Test ProductService", () => {
         const items = await productService.fetchAvailableItems();
         console.log(items);
         expect(items.length).toBe(1);
+        expect(fetchItems).toHaveBeenCalledTimes(1);
         // expect(items).toEqual([{ item: "Milk", available: true }]);
     });
 });
