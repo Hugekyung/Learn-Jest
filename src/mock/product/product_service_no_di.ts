@@ -12,7 +12,7 @@ export class ProductService {
     }
 
     async fetchAvailableItems() {
-        const items: Item[] = await this.productClient.fetchItems();
+        const items: Item[] = this.productClient.fetchItems();
         const result = items.filter((item: Item) => item.available);
         return result;
     }
