@@ -7,7 +7,7 @@ describe("UserService TEST", () => {
         userClient = new StubUserClient();
     });
 
-    it("id와 password를 받아 이상이 없으면 로그인 처리한다.", async () => {
+    it("id와 password를 받아 로그인 처리한다.", async () => {
         const id = "haechan";
         const password = "123456789";
         const userService = new UserService(userClient);
