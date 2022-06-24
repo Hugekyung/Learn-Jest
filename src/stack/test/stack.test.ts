@@ -17,12 +17,22 @@ describe("Stack TEST", () => {
         expect(stack.getStack()).toEqual([2]);
     });
 
-    it("pop() method를 통해 스택에 마지막으로 등록된 아이템을 제거할 수 있고, 그 값을 반환받는다.", () => {
-        stack.push(1);
-        stack.push(2);
-        expect(stack.size()).toBe(2);
-        expect(stack.pop()).toEqual(2);
-        expect(stack.getStack()).toEqual([1]);
+    describe("pop() method TEST", () => {
+        it("pop() method를 통해 스택에 마지막으로 등록된 아이템을 제거할 수 있다.", () => {
+            stack.push(1);
+            stack.push(2);
+            stack.pop();
+            expect(stack.getStack()).toEqual([1]);
+            expect(stack.size()).toBe(1);
+        });
+
+        it("pop() method를 통해 스택에 가장 마지막에 들어온 값을 먼저 내보내며, 그 값을 반환받는다.", () => {
+            stack.push(1);
+            stack.push(2);
+            expect(stack.size()).toBe(2);
+            expect(stack.pop()).toEqual(2);
+            expect(stack.size()).toBe(1);
+        });
     });
 
     it("pop() method를 사용했을 때 스택이 비어있다면, 에러를 반환한다.", () => {
