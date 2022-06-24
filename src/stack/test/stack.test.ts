@@ -10,4 +10,10 @@ describe("Stack TEST", () => {
         expect(stack.size()).toBe(0);
         expect(stack.getStack()).toEqual([]);
     });
+
+    it("push() method를 통해 스택에 아이템을 추가할 수 있다.", () => {
+        stack.push(2);
+        expect(stack.size()).toBe(1);
+        expect(stack.getStack()).toEqual([2]);
+    });
 });

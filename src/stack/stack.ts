@@ -11,4 +11,8 @@ export class Stack {
     size() {
         return this.array.length;
     }
+
+    push(item: any) {
+        this.array.push(item);
+    }
 }
