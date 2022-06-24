@@ -3,4 +3,12 @@ export class Queue {
     constructor() {
         this.array = [];
     }
+
+    getQueue() {
+        return this.array;
+    }
+
+    size() {
+        return this.array.length;
+    }
 }
