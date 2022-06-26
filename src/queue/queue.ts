@@ -11,4 +11,8 @@ export class Queue {
     size() {
         return this.array.length;
     }
+
+    push(value: any) {
+        this.array.push(value);
+    }
 }
