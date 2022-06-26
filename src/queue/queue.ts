@@ -17,6 +17,11 @@ export class Queue {
     }
 
     pop() {
+        if (this.array.length === 0) {
+            throw new Error("Error : Empty queue!");
+        }
+        const removed_value = this.array[0];
         this.array = this.array.slice(1, this.array.length);
+        return removed_value;
     }
 }
