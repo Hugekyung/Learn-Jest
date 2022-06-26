@@ -15,4 +15,8 @@ export class Queue {
     push(value: any) {
         this.array.push(value);
     }
+
+    pop() {
+        this.array = this.array.slice(1, this.array.length);
+    }
 }
