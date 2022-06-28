@@ -18,6 +18,13 @@ export class Queue {
 
     pop() {
         if (this.array.length === 0) {
+            throw new Error("Queue is empty");
+        }
+        return this.array.pop();
+    }
+
+    popleft() {
+        if (this.array.length === 0) {
             throw new Error("Error : Empty queue!");
         }
         const removed_value = this.array[0];

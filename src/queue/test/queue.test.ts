@@ -18,23 +18,29 @@ describe("Queue TEST", () => {
         expect(queue.getQueue()).toEqual([1, 2, 3]);
     });
 
-    it("pop() : 큐에서 값을 제거한다.", () => {
+    it("pop() : 큐에서 맨 마지막 값(일반적인 배열에서의 pop)을 제거한다.", () => {
         queue.push(1);
         queue.pop();
         expect(queue.size()).toBe(0);
     });
 
-    it("pop() : 큐에서 값을 제거하면 가장 먼저 들어왔던 값부터 제거된다", () => {
+    it("popleft() : 큐에서 값을 제거하면 가장 먼저 들어왔던 값부터 제거된다", () => {
         queue.push(1);
         queue.push(2);
         queue.push(3);
         queue.push(4);
-        expect(queue.pop()).toEqual(1);
-        expect(queue.pop()).toEqual(2);
+        expect(queue.popleft()).toEqual(1);
+        expect(queue.popleft()).toEqual(2);
         expect(queue.size()).toBe(2);
     });
 
-    it("pop() Erorr : 큐에 값이 없을 때 pop()을 하면 에러를 발생한다.", () => {
-        expect(() => queue.pop()).toThrowError("Error : Empty queue!");
+    describe("pop(), popleft() Erorr TEST", () => {
+        it("popleft() Erorr : 큐에 값이 없을 때 popleft()을 하면 에러를 발생한다.", () => {
+            expect(() => queue.popleft()).toThrowError("Error : Empty queue!");
+        });
+
+        it("pop() Erorr : 큐에 값이 없을 때 pop()을 하면 에러를 발생한다.", () => {
+            expect(() => queue.pop()).toThrowError("Queue is empty");
+        });
     });
 });
